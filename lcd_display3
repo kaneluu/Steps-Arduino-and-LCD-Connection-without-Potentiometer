@@ -1,0 +1,69 @@
+#include <LiquidCrystal.h>
+
+// initialize the library with the numbers of the interface pins
+
+LiquidCrystal lcd(0, 1, 8, 9, 10, 11); /// REGISTER SELECT PIN,ENABLE PIN,D4 PIN,D5 PIN, D6 PIN, D7 PIN
+
+void setup()
+
+{
+
+// set up the LCD’s number of columns and rows:
+
+lcd.begin(16, 2);
+
+}
+
+
+void loop(){
+  // print something to test
+  lcd.print("Arduino is fun");
+  // delay 2s
+  delay(2000);
+
+  // using setCursor() function to change the location on the display
+  // lcd.setCursor(column, row)
+  lcd.setCursor(2,1);
+  lcd.print("WORK HARD");
+  delay(3000);
+
+  // we can clear these 2 texts by clear() function
+  lcd.clear();
+
+  // use blink() function to see the blinking
+  lcd.blink();
+  delay(3000);
+
+  // change the location of the cursor
+  lcd.setCursor(7,1);
+  delay(3000);
+
+  // turn the blinking off by noBlink()
+  lcd.noBlink();
+
+  // we can set the underscore cursor by cursor() function
+  lcd.cursor();
+  delay(3000);
+  lcd.noCursor(); // to turn off the cursor
+
+  lcd.clear();
+
+  lcd.print("CIRCUIT DIGEST");//print name
+
+  lcd.setCursor(0, 1); // set the cursor to column 0, line 2
+
+  lcd.print("IC TRONIC");//print name
+
+  delay(1000);//delay of 1s
+
+  for (int i = 0; i < 1000; i = i + 50){
+  
+  lcd.scrollDisplayLeft();//shifting data on LCD
+
+  lcd.setCursor(0, 0);// set the cursor to column 0, line1
+
+  delay(i); 
+  }
+
+  lcd.clear();
+}
