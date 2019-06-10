@@ -1,0 +1,50 @@
+// include this library for displaying
+#include <LiquidCrystal.h>
+
+// initialize the library with the numbers of the interface pins
+
+LiquidCrystal lcd(0, 1, 8, 9, 10, 11);
+
+// the parameters represent the pin number on arduino
+// with the order of the LCD's pin is:
+// RS pin, enable pin, registers for the rest
+
+void setup() {
+// initlalize LCD and set-up dimensions
+// set up the LCD’s number of columns and rows:
+  lcd.begin(16, 2);
+}
+
+void loop(){
+  // print something to test
+  lcd.print("Arduino is fun");
+  // delay 2s
+  delay(2000);
+
+  // using setCursor() function to change the location on the display
+  // lcd.setCursor(column, row)
+  lcd.setCursor(2,1);
+  lcd.print("You need to WORK");
+  delay(3000);
+
+  // we can clear these 2 texts by clear() function
+  lcd.clear();
+
+  // use blink() function to see the blinking
+  lcd.blink();
+  delay(3000);
+
+  // change the location of the cursor
+  lcd.setCursor(7,1);
+  delay(3000);
+
+  // turn the blinking off by noBlink()
+  lcd.noBlink();
+
+  // we can set the underscore cursor by cursor() function
+  lcd.cursor();
+  delay(3000);
+  lcd.noCursor(); // to turn off the cursor
+
+  lcd.clear();
+}
